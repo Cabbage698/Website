@@ -1,0 +1,13 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE files (
+  id SERIAL PRIMARY KEY,
+  filename VARCHAR(255) NOT NULL,
+  file_url TEXT NOT NULL,
+  uploaded_by INT REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
